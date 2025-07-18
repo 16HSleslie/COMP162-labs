@@ -51,6 +51,10 @@ public class AntStudyApp {
          System.out.printf("The distance of the longest leg: %.2f\n\n", journey.getLongestLeg());
       }
       
+      System.out.println("***Testing using initFromFile with incorrect file***\n");
+      
+      ArrayList<AntJourney> test = initFromFile("notafile.txt");
+      
    }
    
    /*

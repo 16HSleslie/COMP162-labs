@@ -9,8 +9,8 @@ public class AntJourney {
    /*
    * Constructor that creates an AntJourney object with an id
    * and array of points the ant has been to
-   * @param String with id of ant
-   * @param Array of all the points the ant has been to
+   * @param id String with id of ant
+   * @param journey Array of all the points the ant has been to
    */
    public AntJourney(String id, Point[] journey) {
       this.antId = id;
@@ -18,7 +18,7 @@ public class AntJourney {
    }
    
    /*
-   * Gets the id of this ant journey
+   * Accessor method that gets the id of this ant journey
    * @return The id as a String
    */
    public String getId() {
@@ -26,8 +26,8 @@ public class AntJourney {
    }
    
    /*
-   * Sets the id of this ant journey
-   * @param The id string of new value
+   * Mutator method that sets the id of this ant journey
+   * @param antId The id string of new value
    */
    public void setId(String antId) {
       this.antId = antId;
@@ -53,10 +53,11 @@ public class AntJourney {
    * @return The distanceof the shortest leg as a double value
    */
    public double getShortestLeg() {
-      double shortestLeg = 0.0;
+      double shortestLeg = Double.MAX_VALUE;
       for (int x = 0; x < journey.length - 1; x++) {
-         if (Point.distanceBetweenTwoPoint(journey[x], journey[x+1]) < shortestLeg || shortestLeg == 0.0) {
-            shortestLeg = Point.distanceBetweenTwoPoint(journey[x], journey[x+1]);
+         double distance = Point.distanceBetweenTwoPoint(journey[x], journey[x+1]);
+         if (distance < shortestLeg) {
+            shortestLeg = distance;
          }
       }
       return shortestLeg;
@@ -70,8 +71,9 @@ public class AntJourney {
    public double getLongestLeg() {
       double longestLeg = 0.0;
       for (int x = 0; x < journey.length - 1; x++) {
-         if (Point.distanceBetweenTwoPoint(journey[x], journey[x+1]) > longestLeg) {
-            longestLeg = Point.distanceBetweenTwoPoint(journey[x], journey[x+1]);
+         double distance = Point.distanceBetweenTwoPoint(journey[x], journey[x+1]);
+         if (distance > longestLeg) {
+            longestLeg = distance;
          }
       }
       return longestLeg;
