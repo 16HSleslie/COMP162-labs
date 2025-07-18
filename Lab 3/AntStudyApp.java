@@ -1,3 +1,8 @@
+import java.util.*;
+import java.io.*;
+import java.nio.file.*;
+
+
 public class AntStudyApp {
    public static void main(String[] args) {
       Point[] testJourneyData = {new Point(0, 0),new Point(4, 0),new Point(4, 3),new Point(0, 0)};
@@ -13,5 +18,33 @@ public class AntStudyApp {
                                    
       Point[] purpleAntJourneyData  = {new Point(0, 0), new Point(6, 2), new Point(9, 8), new Point(16, 7), new Point(12, 1), 
                                        new Point(7, 4), new Point(9, 1), new Point(0, 0)};
+                                       
+      
+      ArrayList<AntJourney> journeys = new ArrayList<AntJourney>();
+      journeys.add(new AntJourney("Blue Ant", blueAntJourneyData));
+      journeys.add(new AntJourney("Red Ant", redAntJourneyData));
+      journeys.add(new AntJourney("Green Ant", greenAntJourneyData));
+      journeys.add(new AntJourney("Purple Ant", purpleAntJourneyData));
+      
+      for (AntJourney journey : journeys) {
+         System.out.printf("%s: %s\n", journey.getId(), journey.toString());
+         System.out.printf("Total distance travelled: %s\n", journey.getDistanceTravelled());
+         System.out.printf("The distance of the shortest leg: %s\n", journey.getShortestLeg());
+         System.out.printf("The distance of the longest leg: %s\n\n", journey.getLongestLeg());
+      }
+   }
+   
+   public static AntJourney[] initFromFile(String path) {
+      ArrayList<String> antStrings = new ArrayList<String>();
+      
+      try {
+         Scanner fileScanner = new Scanner(new File(path));
+         while (fileScanner.hasNextLine()) {
+            antStrings.add(fileScanner.nextLine());
+         }
+      } catch (FileNotFoundException e) {
+         System.out.println("File not found");
+      }
+      return null;
    }
 }
