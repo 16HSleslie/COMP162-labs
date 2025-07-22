@@ -46,6 +46,12 @@ public class RoomFinder {
                             """);
         return readInt("Please enter an int between 0 and 3(inclusive): ");
     }
+
+    public static void selectAndAdd() {
+        for (int x = 0; x < houseList.length; x++) {
+            System.out.printf("");
+        }
+    }
     
     public static int readInt(String prompt) {
         Scanner s = new Scanner(System.in);

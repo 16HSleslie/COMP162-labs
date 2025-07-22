@@ -15,6 +15,14 @@ public class Dwelling {
         this.roomsFree = roomsFree;
         totalFreeRooms += roomsFree;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getRoomsFree() {
+        return roomsFree;
+    }
     
     public void addTenant() {
         if (roomsFree != 0) {
