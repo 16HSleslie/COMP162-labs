@@ -20,27 +20,27 @@ public class AntStudyApp {
                                        new Point(7, 4), new Point(9, 1), new Point(0, 0)};
                                        
       
-      System.out.println("***Testing AntJourney class functionality with test data***\n");
-      AntJourney testAntJourney = new AntJourney("Test Ant", testJourneyData);
-      System.out.printf("%s: %s\n", testAntJourney.getId(), testAntJourney.toString());
-      System.out.printf("Total distance travelled: %.2f\n", testAntJourney.getDistanceTravelled());
-      System.out.printf("The distance of the shortest leg: %.2f\n", testAntJourney.getShortestLeg());
-      System.out.printf("The distance of the longest leg: %.2f\n\n", testAntJourney.getLongestLeg());
+     //  System.out.println("***Testing AntJourney class functionality with test data***\n");
+//       AntJourney testAntJourney = new AntJourney("Test Ant", testJourneyData);
+//       System.out.printf("%s: %s\n", testAntJourney.getId(), testAntJourney.toString());
+//       System.out.printf("Total distance travelled: %.2f\n", testAntJourney.getDistanceTravelled());
+//       System.out.printf("The distance of the shortest leg: %.2f\n", testAntJourney.getShortestLeg());
+//       System.out.printf("The distance of the longest leg: %.2f\n\n", testAntJourney.getLongestLeg());
+//       
+//       System.out.println("***Testing AntJourney class functionality with ArrayList of AntJourney's***\n");
+//       ArrayList<AntJourney> antJourneyList = new ArrayList<>();
+//       antJourneyList.add(new AntJourney("Blue Ant", blueAntJourneyData));
+//       antJourneyList.add(new AntJourney("Green Ant", greenAntJourneyData));
+//       antJourneyList.add(new AntJourney("Red Ant", redAntJourneyData));
       
-      System.out.println("***Testing AntJourney class functionality with ArrayList of AntJourney's***\n");
-      ArrayList<AntJourney> antJourneyList = new ArrayList<>();
-      antJourneyList.add(new AntJourney("Blue Ant", blueAntJourneyData));
-      antJourneyList.add(new AntJourney("Green Ant", greenAntJourneyData));
-      antJourneyList.add(new AntJourney("Red Ant", redAntJourneyData));
-      
-      for (AntJourney journey : antJourneyList) {
-         System.out.printf("%s: %s\n", journey.getId(), journey.toString());
-         System.out.printf("Total distance travelled: %.2f\n", journey.getDistanceTravelled());
-         System.out.printf("The distance of the shortest leg: %.2f\n", journey.getShortestLeg());
-         System.out.printf("The distance of the longest leg: %.2f\n\n", journey.getLongestLeg());
-      }
-      
-      System.out.println("***Testing initFromFile functionality***\n");
+      // for (AntJourney journey : antJourneyList) {
+//          System.out.printf("%s: %s\n", journey.getId(), journey.toString());
+//          System.out.printf("Total distance travelled: %.2f\n", journey.getDistanceTravelled());
+//          System.out.printf("The distance of the shortest leg: %.2f\n", journey.getShortestLeg());
+//          System.out.printf("The distance of the longest leg: %.2f\n\n", journey.getLongestLeg());
+//       }
+//       
+//       System.out.println("***Testing initFromFile functionality***\n");
       
       ArrayList<AntJourney> journeys = initFromFile("AntJourneys.txt");
       

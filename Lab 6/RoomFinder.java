@@ -27,8 +27,8 @@ public class RoomFinder {
                     System.out.printf("\nTotal free rooms in all the houses is %s\n", Dwelling.totalFreeRooms);
                     break;
                 case 3:
-                    
-                    break;
+                    selectAndAddTenant();
+                    break; 
                 case 0:
                     System.out.println("Okay bye!");
                     break;
@@ -36,6 +36,10 @@ public class RoomFinder {
         } while (menuChoice != 0);
     }
     
+    /*
+    * Method to display option menu
+    * @return Int of the user choice
+    */
     public static int displayMenu() {
         System.out.printf("""
                             \nPlease choose a menu option
@@ -47,18 +51,55 @@ public class RoomFinder {
         return readInt("Please enter an int between 0 and 3(inclusive): ");
     }
 
-    public static void selectAndAdd() {
-        for (int x = 0; x < houseList.length; x++) {
-            System.out.printf("");
+    /*
+    * Method to allow a tenant to added to a dwelling with space avaliable
+    */
+    public static void selectAndAddTenant() {
+        int houseListLength = houseList.length;
+        House house;
+                    
+        showRoomsAvaliable();
+        System.out.println("Which dwelling do you wish to add a tenant to?");
+                    
+        try {
+            int choiceIndexNum = readInt(String.format("PLease enter an in between 0 and %s (inclusive): ", houseListLength - 1));
+            house = houseList[choiceIndexNum];
+                        
+            if (house.getRoomsFree() > 0) {
+                house.addTenant();
+            } else {
+                System.out.println("Sorry, that one is full!");
+            }
+        } catch(ArrayIndexOutOfBoundsException e) {
+                System.out.println("Error: The house you chose doesn't exist");
         }
     }
     
+    /*
+    * Method to retive input from user as Int and return the Int value
+    * @param prompt String of prompt to displayed
+    * @return Input of use as an Int
+    */
     public static int readInt(String prompt) {
         Scanner s = new Scanner(System.in);
         System.out.print("\n" + prompt);
         return s.nextInt();
     }
     
+    /*
+    * Method to display list of each dwelling and how many rooms are avaliabel
+    */
+    public static void showRoomsAvaliable() {
+      for (int x = 0; x < houseList.length; x++) {
+         House house = houseList[x];
+         System.out.printf("House %s %s has %s rooms free\n", x, house.getAddress(), house.getRoomsFree());
+      }
+    }
+    
+    /*
+    * Method to display the information of each house along with
+    * the rooms contained in each house
+    */
     public static void showHouses() {
         System.out.println("LIST OF DWELLINGS");
         for (House house : houseList) {

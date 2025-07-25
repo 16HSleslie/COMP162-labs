@@ -1,14 +1,29 @@
+/*
+* Class to represent the information of a Hall.
+* Hall is an subclass of Dwelling and inheriets the
+* common variables and methods
+*/
+
 public class Hall extends Dwelling {
     
     private String name;
     private double roomCostPerYear;
     
+    /*
+    * Contructor that creats an object of Hall with the name of the Hall
+    * and the cost per year, additional calls the contructor of Dwelling with
+    * the address and rooms contained in the Hall
+    */
     public Hall(String address, int roomsFree, String name, double roomCostPerYear) {
         super(address, roomsFree);
         this.name = name;
         this.roomCostPerYear = roomCostPerYear;
     }
     
+    /*
+    * Method that overrides the default behaviour of display method
+    * from Dweeling and outs the desired information accociated with this Hall
+    */
     @Override
     public void display() {
         System.out.println("*".repeat(60));

@@ -1,14 +1,28 @@
+/*
+* Class to represent the information of a House.
+* a House is an subclass of Dwelling and inheriets the
+* common variables and methods
+*/
 public class House extends Dwelling {
     
     private String description;
     private double rentPerMonth;
     
+    /*
+    * Contructor that creats an object of House with a description of the House
+    * and the rent per month, additionally calls the contructor of Dwelling with
+    * the address and rooms contained in the House
+    */
     public House(String address, int roomsFree, String description, double rentPerMonth) {
         super(address, roomsFree);
         this.description = description;
         this.rentPerMonth = rentPerMonth;
     }
     
+    /*
+    * Method that overrides the default behaviour of display method
+    * from Dweeling and outs the desired information accociated with this House
+    */
     @Override
     public void display() {
         System.out.println("*".repeat(60));
