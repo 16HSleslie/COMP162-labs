@@ -55,8 +55,15 @@ public abstract class Dwelling {
         }
     }
     
+    /*
+    * Defines an abstract method to be implemented in subclasses
+    */
     public abstract void calcRoomPerMonth();
     
+    /*
+    * Method to find the smallest room based on area in array of 
+    * rooms, and print said room to the screen
+    */
     public void getSmallestRoom() {
         int smallestRoomIndex = 0;
         int smallestRoomArea = 0;
@@ -85,6 +92,6 @@ public abstract class Dwelling {
         for (int x = 0; x < totalRooms; x++) {
             System.out.printf("  Room %s %s\n", x, roomList[x].toString());
         }
-        System.out.println("Rooms used: " + (totalRooms-totalRooms));
+        System.out.println("Rooms used: " + (totalRooms-roomsFree));
     }
 }

@@ -100,7 +100,7 @@ public class RoomFinder {
     public static void showRoomsAvaliable() {
       for (int x = 0; x < dwellingList.length; x++) {
          Dwelling dwelling = dwellingList[x];
-         System.out.printf("House %s %s has %s rooms free\n", x, dwelling.getAddress(), dwelling.getRoomsFree());
+         System.out.printf("Dwelling %s %s has %s rooms free\n", x, dwelling.getAddress(), dwelling.getRoomsFree());
       }
     }
     

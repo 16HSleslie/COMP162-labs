@@ -20,6 +20,10 @@ public class Hall extends Dwelling {
         this.roomCostPerYear = roomCostPerYear;
     }
     
+    /*
+    * method to calculate the rent per month from the rent per year and
+    * print the value to the screen
+    */
     public void calcRoomPerMonth() {
         System.out.printf("The cost per room at %s\n", super.address);
         System.out.printf("is $%.2f per month\n", roomCostPerYear / 12);

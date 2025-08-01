@@ -23,10 +23,11 @@ public class Car extends Vehicle {
     private int litresPerKm;
     
     public Car(String name, String ctryOfOrigin, int lpK, int airBags) {
+        Super(name, ctryOfOrigin);
         this.numAirBags = airBags;
         this.litresPerKm = lpK;
         
-        Super(name, ctryOfOrigin);
+  
     }
     
     public int fuelConsumption(int tripLength) {
