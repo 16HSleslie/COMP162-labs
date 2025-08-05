@@ -12,22 +12,7 @@ public class ShoppingAnalysisApp {
         PersonalSupermarketShopping s = new PersonalSupermarketShopping("Jeff", 6, "receipts.txt");
         PersonalSupermarketShopping stwo = new PersonalSupermarketShopping("Jeff", 7, "receiptsTwo.txt");
         
-        System.out.println("\n Print 1 or 0 of ");
-        System.out.println(s.compareTo(stwo));
         
-        System.out.println("\n Print unsorted array");
-        for (PersonalSupermarketShopping e : testArray) {
-            System.out.println(e.getNumShops());
-        }
-        
-        Arrays.sort(testArray);
-        
-        System.out.println("\n Print sorted array");
-        for (PersonalSupermarketShopping e : testArray) {
-            System.out.println(e.getNumShops());
-        }
-        
-        /*
         // Testing getNumShop method
         System.out.println("*".repeat(25));
         for (PersonalSupermarketShopping shop : testArray) {
@@ -70,15 +55,32 @@ public class ShoppingAnalysisApp {
         }
         System.out.println();
         
-        */
-        
-        /*
+        // testing instance of PersonalSupermarketShopping inited from file
+        System.out.println("*".repeat(25));
         System.out.println(s.getNumShops());
         System.out.println(s.getReceiptsTotal());
         System.out.println(s.getReceiptsAverage());
         System.out.println(s.amountPerWeek());
         System.out.println(s.getSmallestReceipt());
         System.out.println(s.getLargestReceipt());
-        */
+        
+        // testing compareTo and equal's method
+        System.out.println("*".repeat(25));
+        System.out.println("testing compareTo method expected output (-1 = less than, 0 = the same, 1 = greater than)");
+        System.out.println(s.compareTo(stwo) + "\n");
+        System.out.println("testing equal method expected output (if compareTo = 1 or -1; false. if compareTo = 0; true)");
+        System.out.println(s.equals(stwo));
+        
+        // testing Array.sort method to see if compareTo works as intended.
+        System.out.println("*".repeat(25));
+        System.out.println("Unsorted array");
+        for (PersonalSupermarketShopping e : testArray) {
+            System.out.println(e.getNumShops());
+        }
+        Arrays.sort(testArray);
+        System.out.println("sorted array");
+        for (PersonalSupermarketShopping e : testArray) {
+            System.out.println(e.getNumShops());
+        }
     }
 }

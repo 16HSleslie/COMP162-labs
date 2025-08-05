@@ -153,12 +153,23 @@ public class PersonalSupermarketShopping implements ShoppingDataInterface, Compa
         return name;
     }
     
+    /*
+    * Method to compare if is two instances of PersonalSupermarketShopping are different
+    * in respect to the number of shops contained in each one.
+    * @return An int to represent each possible outcome: -1 = smaller, 0 = equal, 1 = greater.
+    */
     @Override
     public int compareTo(PersonalSupermarketShopping e) {
         return this.getNumShops() - e.getNumShops();
     }
     
-    public boolean equals(PersonalSupermarketShopping e) {
-        return true;
+    /*
+    * Method to compare if is two instances of PersonalSupermarketShopping are equal
+    * in repect to the number of shops contained in each one
+    * @return Boolean value of true or false. 
+    */
+    public boolean equals(Object e) {
+        PersonalSupermarketShopping shop = (PersonalSupermarketShopping) e;
+        return (getNumShops() == shop.getNumShops());
     }
 }
