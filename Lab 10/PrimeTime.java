@@ -8,6 +8,8 @@ public class PrimeTime {
         ArrayList<Integer> primesTwo = getPrimesBetween(1, 1000);
         System.out.println(erathosthenesPrime(100).toString());
         
+        System.out.println(getPrimeFactorisation(282).toString());
+        
         /*for (int x = 0; x < primes.length; x++) {
             if (primes[x]) {
                 System.out.print(x + " ");
@@ -41,8 +43,22 @@ public class PrimeTime {
         return primeNumbers;
     }
     
-    public static ArrayList<Integer> getPrimeFactorisation(int x) {
-        return null;
+    public static ArrayList<Integer> getPrimeFactorisation(int n) {
+        ArrayList<Integer> primeToN = erathosthenesPrime(n);
+        ArrayList<Integer> primeFactors = new ArrayList<Integer>();
+        
+        int y = n;
+        for (int x = 0; x < primeToN.size(); x++) {
+            int count = 0;
+            while (y % primeToN.get(x) == 0) {
+                y = y / primeToN.get(x);
+                count++;
+            }
+            for (int z = 0; z < count; z++) {
+                primeFactors.add(primeToN.get(x));
+            }
+        }
+        return primeFactors;
     }
     
     // I didn't comeup with this algorithm but I did create the code from the mathematical equation. I thought it was cool

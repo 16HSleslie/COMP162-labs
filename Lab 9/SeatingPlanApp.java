@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+
 public class SeatingPlanApp {
 
     private static boolean[][] seats;
@@ -14,9 +15,10 @@ public class SeatingPlanApp {
         System.out.println(seatPlan.findSeats(readInt("How many seats would you like to book:")));
     }
 
-    /** Takes a String which is used to prompt the user to enter an int which is then returned
-        @param prompt The instruction to the user
-        @return the int entered by the user
+    /*
+    * Takes a String which is used to prompt the user to enter an int which is then returned
+    * @param prompt The instruction to the user
+    * @return the int entered by the user
     */
     public static int readInt(String prompt) {
         boolean goodToGo = false;
@@ -36,6 +38,11 @@ public class SeatingPlanApp {
         return i;
     }
 
+    /*
+    * Method that inits boolean array with values contained
+    * inside of a text file
+    * @param path Path to file as String that values are read from
+    */
     public static void initSeatsFromFile(String path) {
         try {
             Scanner sc = new Scanner(new File(path));
