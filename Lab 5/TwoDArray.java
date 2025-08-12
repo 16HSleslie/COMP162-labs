@@ -7,6 +7,9 @@ public class TwoDArray {
          {"Dog", "Desk"}
       };
       
+      
+      
+      
       System.out.println("\n***Testing printing each elemenet in 2D array***\n");
       for (String[] row : words) {
          for (String word : row) {

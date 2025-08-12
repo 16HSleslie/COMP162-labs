@@ -48,10 +48,11 @@ public class PersonalSupermarketShopping implements ShoppingDataInterface, Compa
     */
     public double getReceiptsTotal() {
         /*
-        Double total = 0;
+        Double total = 0.0;
         for (double value : receiptList) {
          total += value;
         }
+        return total;
         */
         return receiptList.stream()
                           .mapToDouble(x -> x)
@@ -64,8 +65,7 @@ public class PersonalSupermarketShopping implements ShoppingDataInterface, Compa
     */
     public double getReceiptsAverage() {
         /*
-        double average = 0;
-        for (doub)
+        return getReceiptTotal() / receiptList.length();
         */
         return receiptList.stream()
                           .mapToDouble(x -> x)
@@ -86,6 +86,15 @@ public class PersonalSupermarketShopping implements ShoppingDataInterface, Compa
     * @return Smalled value in receiptList
     */
     public double getSmallestReceipt() {
+        /*
+        double smallValue = receiptList[0];
+        for (int x = 0; x < receiptList.length; x++) {
+            if (receiptList[x] < smallValue) {
+                smallValue = receiptList[x];
+            }
+        }
+        return smallValue;
+        */
         return receiptList.stream()
                           .mapToDouble(x -> x)
                           .min()
@@ -97,6 +106,15 @@ public class PersonalSupermarketShopping implements ShoppingDataInterface, Compa
     * @return largestest value in receiptList
     */
     public double getLargestReceipt() {
+        /*
+        double largeValue = receiptList[0];
+        for (int x = 0; x < receiptList.length; x++) {
+            if (receiptList[x] > largeValue) {
+                largeValue = receiptList[x];
+            }
+        }
+        return largeValue;
+        */
         return receiptList.stream()
                           .mapToDouble(x -> x)
                           .max()
