@@ -5,10 +5,10 @@ public class PrimeTime {
     public static void main(String[] args) {       
 
         System.out.println(isPrime(7));
-        ArrayList<Integer> primesTwo = getPrimesBetween(1, 1000);
-        System.out.println(erathosthenesPrime(100).toString());
+        ArrayList<Integer> primesTwo = getPrimesBetween(1, 100);
+        System.out.println(primesTwo.toString());
         
-        System.out.println(getPrimeFactorisation(282).toString());
+        System.out.println(getPrimeFactorisation(70).toString());
         
         /*for (int x = 0; x < primes.length; x++) {
             if (primes[x]) {
@@ -17,6 +17,12 @@ public class PrimeTime {
         }*/
     }
     
+    /*
+    * Method to check if a num is prime or not by checking if
+    * n is divisable by each num up to sqrt of n
+    * @param x Number to check if prime or not
+    * @return true/false if its a prime
+    */
     public static boolean isPrime(int x) {
         if (x <= 1) return false;
         if (x == 2) return true;
@@ -31,6 +37,13 @@ public class PrimeTime {
         return true;
     }
     
+    /*
+    * Method to get all the prime numbers up between n and n2
+    * by running the isPrime method on all the numbers in that range
+    * @param a lower bound of range
+    * @param b upper bound of range
+    * @return ArrayList of prime numbers in range
+    */
     public static ArrayList<Integer> getPrimesBetween(int a, int b) {
         ArrayList<Integer> primeNumbers = new ArrayList<Integer>();        
         
@@ -43,18 +56,23 @@ public class PrimeTime {
         return primeNumbers;
     }
     
+    /*
+    * Method to get prime factors of any given number
+    * This is done by getting a list of prime number up to n
+    * and dividing n by the lowest possible prime numebr until
+    * not posssible any more then moving on to the next prime num in list
+    * continuing until n = 0
+    * @param n The number you want prime factors of
+    * @return ArrayList of prime factors
+    */
     public static ArrayList<Integer> getPrimeFactorisation(int n) {
         ArrayList<Integer> primeToN = erathosthenesPrime(n);
         ArrayList<Integer> primeFactors = new ArrayList<Integer>();
         
         int y = n;
         for (int x = 0; x < primeToN.size(); x++) {
-            int count = 0;
             while (y % primeToN.get(x) == 0) {
                 y = y / primeToN.get(x);
-                count++;
-            }
-            for (int z = 0; z < count; z++) {
                 primeFactors.add(primeToN.get(x));
             }
         }
