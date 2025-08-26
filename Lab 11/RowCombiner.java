@@ -32,19 +32,18 @@ public class RowCombiner {
         int arrayLen = (int) Math.ceil(nums.length / 2.0);
         int[][] combinedRowsArray = new int[arrayLen][];
         
-        System.out.println(arrayLen);
-        
-        int[] tempArray;
+        int[] tempArray = null;
+        int index = 0;
         
         for (int row = 0; row < nums.length; row++) {
-            if (tempArray[0] == null) {
+            if (tempArray == null) {
                 tempArray = nums[row];
             } else {
                 
             }
         }
         
-        return null;
+        return combinedRowsArray;
     }
     
     public static String getFileContents(String fileName){
