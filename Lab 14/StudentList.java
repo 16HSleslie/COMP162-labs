@@ -6,10 +6,11 @@ public class StudentList {
     public void addStudentToHead(Student st) {
         if (first == null) {
             first = new SLLNode(st, null);
-            last = first;
+            last = first;   
             size++;
         } else {
             SLLNode temp = new SLLNode(st, first);
+            first.prev = temp;
             first = temp;
             size++;
         }
@@ -27,6 +28,7 @@ public class StudentList {
     public void addStudentToTail(Student st) {    
         SLLNode temp = new SLLNode(st, null);
         last.next = temp;
+        temp.prev = last;
         last = temp;
         size++;
     }
@@ -77,10 +79,12 @@ public class StudentList {
     public class SLLNode {
         private Student value;
         private SLLNode next;
+        private SLLNode prev;
         
-        public SLLNode(Student value, SLLNode next) {
+        public SLLNode(Student value, SLLNode next, SLLNode next) {
             this.value = value;
             this.next = next;
+            this.prev = prev;
         }
     }
 }
