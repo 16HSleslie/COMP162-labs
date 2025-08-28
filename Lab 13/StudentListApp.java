@@ -19,7 +19,7 @@ public class StudentListApp {
         System.out.println("");
         studentList.displayStudent();
         System.out.println("");
-        System.out.println(studentList);
+        System.out.println(studentList.toString());
         
         
     }

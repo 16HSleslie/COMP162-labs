@@ -61,13 +61,14 @@ public class StudentList {
     }
     
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        SLLNode curr = first;
+        if (first == null) return "[]";
         
-        sb.append("[");
+        SLLNode curr = first;
+        StringBuilder sb = new StringBuilder("[" + curr.value);
+        
         while( curr.next != null) {
-            sb.append(String.format("\"%s\", ", curr.value));
             curr = curr.next;
+            sb.append(", " + curr.value);
         }
         sb.append("]");
         

@@ -22,6 +22,6 @@ public class Student {
     }
     
     public String toString() {
-        return "Name: " + this.name + ", ID:" + this.id + ", Major: " + this.major;
+        return "Name:" + this.name + "; ID:" + this.id + "; Major:" + this.major;
     }
 }
