@@ -18,6 +18,13 @@ public class TriangleArray {
         print2DArray(getTriangleArray(nums));
     }
     
+    /*
+    * Generates a new 2D array from a given array in such a way
+    * that each new row of the array is 1 larger than the previous row
+    * and the orginal order of the passed array is preserved
+    * @param nums 2D array of int values that will be transformed to triangle
+    * @return triangle 2D array 
+    */
     public static int[][] getTriangleArray(int[][] nums) {
         int totalCells = 0;
         
@@ -51,12 +58,21 @@ public class TriangleArray {
         return triNums;
     }
     
+    /*
+    * Method to generate a random number between a range
+    * @param min Min number of the range
+    * @param max Max number of the range
+    */
     public static int randNum(int min, int max) {
         Random rand = new Random();
         
         return rand.nextInt(min, max + 1);
     }
     
+    /*
+    * Method to print 2d array such that eacch int is leaft alligned
+    * @param nums 2D array that is to be printed
+    */
     public static void print2DArray(int[][] nums) {
         for (int y = 0; y < nums.length; y++) {
             for (int x = 0; x < nums[y].length; x++) {

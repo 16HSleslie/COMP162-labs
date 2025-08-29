@@ -47,6 +47,7 @@ public class StudentList {
             
             SLLNode temp = curr.next;
             curr.next = temp.next;
+            
         }
     }
     
