@@ -21,6 +21,11 @@ public class TriangleArray {
     public static int[][] getTriangleArray(int[][] nums) {
         int totalCells = 0;
         
+        /*
+        * If the array isnt staggerd you can calculate totalCells by
+        * nums[0] * nums.length, no need for a loop.
+        */
+        
         for (int[] row : nums) {
             totalCells += row.length;
         }
