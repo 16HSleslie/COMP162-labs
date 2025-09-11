@@ -64,6 +64,11 @@ public class MatrixTransposer {
         return transMatrix;
     }
     
+    /*
+    * Method to return the transpose of a given ragged 2D matrix.
+    * @param nums 2D matrix that is to be transposed
+    * @return Transposed version of 2D matrix
+    */
     public static int[][] raggedTranspose(int[][] nums) {
         int maxCols = 0;
         int rowLength = nums.length;
@@ -87,6 +92,11 @@ public class MatrixTransposer {
         return transArray;
     }
     
+    /*
+    * Method to generate a random number between a range
+    * @param min Min number of the range
+    * @param max Max number of the range
+    */
     public static int randNum(int min, int max) {
         Random rand = new Random();
         

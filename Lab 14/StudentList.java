@@ -35,6 +35,18 @@ public class StudentList {
     public void removeItem(int removeMe) {
         if(size == 0 || removeMe < 0 || removeMe >= size) {
             return;
+        } else {
+            SLLNode curr = first;
+            int count = 0;
+            
+            while(curr.next != null &&  count + 1 < removeMe) {
+                curr = curr.next;
+                count++;
+            }
+            
+            SLLNode temp = curr.next;
+            curr.next = temp.next;
+            
         }
         
         DLLNode nodeToRemove = first;
