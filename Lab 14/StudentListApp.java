@@ -15,11 +15,13 @@ public class StudentListApp {
         
         //System.out.println(studentList.toString());
         
-        studentList.removeItem(5);
+        System.out.println("\n" + studentList.getStudentById("5555"));
+        
+        studentList.removeStudentById("9999");
         System.out.println("");
         studentList.displayStudent();
         System.out.println("");
-        System.out.println(studentList.toString());
+        studentList.displayStudentReverse();
         
         
     }

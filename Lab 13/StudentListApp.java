@@ -15,7 +15,7 @@ public class StudentListApp {
         
         //System.out.println(studentList.toString());
         
-        studentList.removeItem(5);
+        studentList.removeItem(7);
         System.out.println("");
         studentList.displayStudent();
         System.out.println("");

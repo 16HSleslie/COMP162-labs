@@ -63,7 +63,7 @@ public class Tableau {
             return currValue;
         }
 
-        while (curr.east != null && value > curr.value) {
+        while (curr.east != null) {
             curr = curr.east;
         }
 

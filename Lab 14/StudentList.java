@@ -3,77 +3,135 @@ public class StudentList {
     private DLLNode last;
     private int size;
     
+    /*
+    * Method to add a student to the head of the linked list
+    * @param st Student object
+    */
     public void addStudentToHead(Student st) {
-        DLLNode newNode = new DLLNode(st, first, null);
-        
         if (first == null) {
-            first = newNode;
-            last = newNode;
+            first = new DLLNode(st, null, null);
+            last = first;
+            size++;
         } else {
+            DLLNode newNode = new DLLNode(st, first, null);
             first.prev = newNode;
             first = newNode;
+            size++;
         }
-        
-        size++;
     }
     
+    /*public void addStudentToTail(Student st) {
+        SLLNode curr = first;
+        while( curr.next != null ) {
+            curr = curr.next;
+        }
+        
+        curr.next = new SLLNode(st, null);
+    }*/
     
+    /*
+    * Method to add a student to the tail of the linked list
+    * @param st Student object
+    */
     public void addStudentToTail(Student st) {    
-        DLLNode newNode = new DLLNode(st, null, last);
-        
-        if (first == null) {
-            first = newNode;
-            last = newNode;
-        } else {
-            last.prev = newNode;
-            last = newNode;
-        }
-        
+        DLLNode temp = new DLLNode(st, null, last);
+        last.next = temp;
+        last = temp;
         size++;
     }
     
-    public void removeItem(int removeMe) {
-        if(size == 0 || removeMe < 0 || removeMe >= size) {
-            return;
-        } else {
-            SLLNode curr = first;
-            int count = 0;
-            
-            while(curr.next != null &&  count + 1 < removeMe) {
-                curr = curr.next;
-                count++;
+    /*
+    * Method to get a student object from the linked list by id
+    * @param id String of student id
+    * @retrun Student object
+    */
+    public Student getStudentById(String id) {
+        if (this.first == null) return null;
+        
+        DLLNode curr = first;
+        
+        while (curr != null) {
+            if (curr.value.getId().equals(id)) {
+                return curr.value;
             }
             
-            SLLNode temp = curr.next;
-            curr.next = temp.next;
-            
+            curr = curr.next;
         }
         
-        DLLNode nodeToRemove = first;
+        return null;
+    }
+    
+    /*
+    * Method to remove a student object from the linked list by id
+    * @param id String of student id
+    */
+    public void removeStudentById(String id) {
+        if (this.first == null) return;
+        
+        DLLNode curr = first;
+        
+        while (curr != null) {
+            if (curr.value.getId().equals(id)) {
+                break;
+            }
+            
+            curr = curr.next;
+        }
+        
+        if (curr == first) {
+            first = first.next;
+            first.prev = null;
+            
+            return;
+        } else if (curr == last) {
+            last = last.prev;
+            last.next = null;
+            
+            return;
+        }
+        
+        curr.next.prev = curr.prev;
+        curr.prev.next = curr.next;
+    }
+    
+    /*
+    * Method to remove a student object from the linked list by index
+    * @param removeMe Int of index num
+    */
+    public void removeItem(int removeMe) {
+        if (size == 0 || removeMe < 0 || removeMe >= size) return;
+        
+        if (removeMe == 0) {
+            first = first.next;
+            first.prev = null;
+            
+            return;
+        } else if (removeMe == size - 1) {
+            last = last.prev;
+            last.next = null;
+            
+            return;
+        }
+        
+        DLLNode curr = first;
         
         for (int i = 0; i < removeMe; i++) {
-            nodeToRemove = nodeToRemove.next;
+            curr = curr.next;
         }
         
-        if (nodeToRemove.prev != null) {
-            nodeToRemove.prev.next = nodeToRemove.next;
-        } else {
-            first = nodeToRemove.next;
-        }
+        curr.next.prev = curr.prev;
+        curr.prev.next = curr.next;
         
-        if (nodeToRemove.next != null) {
-            nodeToRemove.next.prev = nodeToRemove.prev;
-        } else {
-            last = nodeToRemove.prev;
-        }
         
-        size--;
     }
     
     public boolean isEmpty() {
         return first == null;
     }
     
+    /*
+    * Method to display the Linked List by printing to console
+    */
     public void displayStudent() {
         DLLNode curr = first;
         while( curr != null) {
@@ -82,6 +140,9 @@ public class StudentList {
         }
     }
     
+    /*
+    * Method to display the Linked List in reverse by printing to console
+    */
     public void displayStudentReverse() {
         DLLNode curr = last;
         while( curr != null) {
@@ -90,28 +151,36 @@ public class StudentList {
         }
     }
     
+    /*
+    * Method to convert Linked List to a String
+    * @return Linked List as a String
+    */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        DLLNode curr = first;
+        if (first == null) return "[]";
         
-        sb.append("[");
-        while ( curr != null) {
-            sb.append(String.format("\"%s\"", curr.value));
-            if (curr.next != null) {
-                sb.append(", ");
-            }
+        DLLNode curr = first;
+        StringBuilder sb = new StringBuilder("[" + curr.value);
+        
+        while( curr.next != null) {
             curr = curr.next;
+            sb.append(", " + curr.value);
         }
         sb.append("]");
         
         return sb.toString();
     }
     
+    /*
+    * Class to represent a node in the Linked List
+    */
     public class DLLNode {
         private Student value;
         private DLLNode next;
         private DLLNode prev;
         
+        /*
+        * Constructor to init an object of SLLNode
+        */
         public DLLNode(Student value, DLLNode next, DLLNode prev) {
             this.value = value;
             this.next = next;
