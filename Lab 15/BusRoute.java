@@ -206,11 +206,8 @@ public class BusRoute {
         DLLNode curr = hubNode;
         StringBuilder sb = new StringBuilder();
         
-        for (int i = 0; i <= size; i++) {
-            sb.append(curr.value);
-            if (i != size) {
-                sb.append("\n");
-            }
+        while (curr.next != hubNode) {
+            sb.append(curr.value + "\n");
             curr = curr.next;
         }
         
