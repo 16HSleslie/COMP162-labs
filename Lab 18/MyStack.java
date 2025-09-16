@@ -1,0 +1,55 @@
+public class MyStack<E> implements StackInterface<E>{
+    private StackNode<E> head;
+    private int size;
+
+    public MyStack() {
+        head = null;
+        size = 0;
+    }
+
+    public void push(E element) {
+        if (head == null) {
+            head = new StackNode<E>(element, null);
+            size++;
+
+            return;
+        }
+
+        head = new StackNode<E>(element, head);
+        size++;
+    }
+
+    /** Removes and returns the top element on the stack*/
+    public E pop() {
+        E element = head.element;
+        head = head.next;
+        size--;
+
+        return element;
+    }
+
+    /** Returns the value of the top element of the stack without removing it*/
+    public E peek() {
+        return head.element;
+    }
+
+    /** Returns the size of the stack*/
+    public int size() {
+        return size;
+    }
+
+    /** Is this stack empty? */
+    public boolean empty() {
+        return size == 0;
+    }
+
+    private class StackNode<E> {
+        private final E element;
+        private final StackNode<E> next;
+
+        public StackNode(E element,  StackNode<E> next) {
+            this.element = element;
+            this.next = next;
+        }
+    }
+}
