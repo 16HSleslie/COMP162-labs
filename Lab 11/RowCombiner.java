@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class RowCombiner {
     public static void main(String[] args) {   
-        String fileContent = getFileContents("numbers2.txt");
+        String fileContent = getFileContents("numbers1.txt");
         
         String[] strArray = fileContent.split("\n");
         int strArrayLen = strArray.length;
@@ -42,7 +42,7 @@ public class RowCombiner {
         int index = 0;
         
         for (int row = 0; row < nums.length; row += 2) {
-            if (row >= arrayLen) {
+            if (row > arrayLen) {
                 combinedRowsArray[index] = nums[row];
                 continue;
             }

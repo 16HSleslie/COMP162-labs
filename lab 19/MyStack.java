@@ -28,21 +28,31 @@ public class MyStack<E> implements StackInterface<E>{
         return element;
     }
 
-    /** Returns the value of the top element of the stack without removing it*/
+    /** Returns the value of the top element of the stack without removing it
+    *   @return Element stored in head node
+    */
     public E peek() {
         return head.element;
     }
 
-    /** Returns the size of the stack*/
+    /** Returns the size of the stack
+    *   @return Size of stack as an Int
+    */
     public int size() {
         return size;
     }
 
-    /** Is this stack empty? */
+    /** Is this stack empty? 
+    *   @return Boolean value if stack is empty or not
+    */
     public boolean empty() {
         return size == 0;
     }
-
+    
+    /*
+    * Creates a string of the stack order
+    * @return String of stack order
+    */
     public String toString() {
         StringBuilder sb = new StringBuilder("<Stack>:");
         StackNode<E> current = head;

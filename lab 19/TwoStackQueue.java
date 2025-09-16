@@ -52,7 +52,8 @@ public class TwoStackQueue<E> implements Queue<E> {
      * Make this Queue empty.
      */
     public void clear() {
-
+        this.left = new MyStack<>();
+        this.right = new MyStack<>();
     }
 
     /**
