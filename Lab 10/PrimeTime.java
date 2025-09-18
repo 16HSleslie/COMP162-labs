@@ -8,7 +8,7 @@ public class PrimeTime {
         ArrayList<Integer> primesTwo = getPrimesBetween(1, 100);
         System.out.println(primesTwo.toString());
         
-        System.out.println(getPrimeFactorisation(70).toString());
+        System.out.println(getPrimeFactorisation(24).toString());
         
         /*for (int x = 0; x < primes.length; x++) {
             if (primes[x]) {

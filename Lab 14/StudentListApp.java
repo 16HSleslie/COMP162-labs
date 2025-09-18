@@ -17,7 +17,7 @@ public class StudentListApp {
         
         System.out.println("\n" + studentList.getStudentById("5555"));
         
-        studentList.removeStudentById("9999");
+        studentList.removeStudentById("23451");
         System.out.println("");
         studentList.displayStudent();
         System.out.println("");
