@@ -8,13 +8,15 @@ public class RPN{
 
 
     public static void main (String[] args){
-        String expression_1 = "2, 1, +, 3, *";
+        String expression_1 = "2, 1, +, 3, *, 8,-";
         String expression_2 = "4, 13, 5, /, +" ;
         String expression_3 = "10, 6, 9, 3, +, -11, *, /, *, 17, +, 5, +";
+        String expression_4 = "9, 12, +, 2, *, 6, 3, +, -";
 
-        System.out.println(evaluate(expression_1.split(", ")));//should be 9
-        System.out.println(evaluate(expression_2.split(", ")));//should be 6
-        System.out.println(evaluate(expression_3.split(", ")));//should be 22
+        System.out.println(evaluate(expression_1.split(",")));//should be 9
+        System.out.println(evaluate(expression_2.split(",")));//should be 6
+        System.out.println(evaluate(expression_3.split(",")));//should be 22
+        System.out.println(evaluate(expression_4.split(",")));//should be 33
     }
 
     /**
@@ -26,6 +28,7 @@ public class RPN{
         //Your code goes here
 
         for (String s : exp) {
+            s = s.trim();
             if (!s.matches("[+\\-/*]")) {
                 stack.push(Integer.valueOf(s));
             } else {

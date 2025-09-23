@@ -2,15 +2,17 @@ import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class TwoStackQueue<E> implements Queue<E> {
-    private MyStack<E> left;
-    private MyStack<E> right;
+    private Stack<E> left;
+    private Stack<E> right;
     private int size;
-
+    
     public TwoStackQueue() {
-        this.left = new MyStack<>();
-        this.right = new MyStack<>();
+        this.left = new Stack<>();
+        this.right = new Stack<>();
+        this.size = 0;
     }
-
+    
+    
     /**
      * Return true if and only if this Queue is empty.
      *
@@ -19,7 +21,7 @@ public class TwoStackQueue<E> implements Queue<E> {
     public boolean isEmpty() {
         return size == 0;
     }
-
+    
     /**
      * Return the length of this Queue.
      *
@@ -28,34 +30,38 @@ public class TwoStackQueue<E> implements Queue<E> {
     public int size() {
         return size;
     }
-
+    
+    public void transferStack() {
+        if (left.empty() && right.empty()) throw new EmptyQueueException();
+        
+        while (!left.empty()) {
+            right.push(left.pop());
+        }
+    }
+    
     /**
      * Return the element at the front of this Queue.
      *
      * @return the element at the front of this Queue.
      * @throws EmptyQueueException if this Queue is empty.
      */
-    public E getFirst() {
-        if (right.empty() && left.empty())
-            throw new EmptyStackException();
-
+    public E getFirst() {      
         if (right.empty()) {
-            while(!left.empty()) {
-                right.push(left.pop());
-            }
+            transferStack();
         }
-
+        
         return right.peek();
     }
-
+    
     /**
      * Make this Queue empty.
      */
     public void clear() {
-        this.left = new MyStack<>();
-        this.right = new MyStack<>();
+        this.left = new Stack();
+        this.right = new Stack();
+        this.size = 0;
     }
-
+    
     /**
      * Add an element to the rear of this Queue.
      *
@@ -65,45 +71,31 @@ public class TwoStackQueue<E> implements Queue<E> {
         left.push(elem);
         size++;
     }
-
+    
     /**
      * Remove and return the front element of this Queue.
      *
      * @return the element at the front of this Queue.
      * @throws EmptyQueueException if this Queue is empty.
      */
-    public E removeFirst() {
-        if (right.empty() && left.empty())
-            throw new EmptyStackException();
-
+    public E removeFirst() {     
         if (right.empty()) {
-            while(!left.empty()) {
-                right.push(left.pop());
-            }
+            transferStack();
         }
-
-        size--;
-        return right.pop();
+        
+        return right.pop();    
     }
-
-    public MyStack<E> copyQueue() {
-        getFirst();
-        return right;
+    
+    public String debug() {
+        return left.toString() + right.toString();
     }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder("<Queue>:");
-
-        MyStack<E> stack = copyQueue();
-
-        while (!stack.empty()) {
-            sb.append(stack.pop());
-            if (!stack.empty()) {
-                sb.append(" --> ");
-            }
-        }
-
-        return sb.toString();
+    
+    public String toString() {      
+        if (size == 0) return "[]";
+        
+        StringBuilder sb = new StringBuilder("[");
+        
+        
+        return right.toString();
     }
-
 }

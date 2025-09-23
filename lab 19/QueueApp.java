@@ -14,8 +14,8 @@ public class QueueApp {
      *
      * @param args command line arguments are not used.
      */
-    public static void main(String[] args) {
-        Queue<String> queue = new TwoStackQueue<String>();
+    public static void main(String args[]) {
+        Queue < String > queue = new TwoStackQueue < String > ();
         Scanner input = new Scanner(System.in);
         while (input.hasNextLine()) {
             handleLine(new Scanner(input.nextLine()), queue);
@@ -34,8 +34,8 @@ public class QueueApp {
      *                 'a' followed by an item.
      * @param queue a queue to manipulate.
      */
-    public static void handleLine(Scanner scanline, Queue<String> queue) {
-        if (scanline.hasNext("[argp]")) {
+    public static void handleLine(Scanner scanline, Queue < String > queue) {
+        if (scanline.hasNext("[argdp]")) {
             char command = scanline.next().charAt(0);
             switch (command) {
                 case 'a':
@@ -52,6 +52,9 @@ public class QueueApp {
                     if (!queue.isEmpty()) {
                         System.out.println(queue.getFirst());
                     }
+                    break;
+                case 'd':
+                    System.out.println(queue.debug());
                     break;
                 case 'p':
                     System.out.println(queue);

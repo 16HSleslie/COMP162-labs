@@ -4,7 +4,7 @@
  *
  * @author Iain Hewson
  */
-public interface Queue<E> {
+public interface Queue < E > {
 
     /**
      * Return true if and only if this Queue is empty.
@@ -48,4 +48,5 @@ public interface Queue<E> {
      */
     public E removeFirst();
 
+    public String debug();
 }
