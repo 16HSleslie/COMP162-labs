@@ -92,10 +92,17 @@ public class TwoStackQueue<E> implements Queue<E> {
     
     public String toString() {      
         if (size == 0) return "[]";
-        
-        StringBuilder sb = new StringBuilder("[");
-        
-        
-        return right.toString();
+        if (right.empty()) return left.toString();
+
+        Stack<E> rightCopy = (Stack<E>) right.clone();
+
+        StringBuilder sb = new StringBuilder("[" + rightCopy.pop());
+
+        while (!rightCopy.empty()) {
+            sb.append(", ").append(rightCopy.pop());
+        }
+
+        sb.append(", ").append(left.toString().substring(1));
+        return sb.toString();
     }
 }
