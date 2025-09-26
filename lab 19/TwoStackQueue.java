@@ -102,7 +102,12 @@ public class TwoStackQueue<E> implements Queue<E> {
             sb.append(", ").append(rightCopy.pop());
         }
 
-        sb.append(", ").append(left.toString().substring(1));
+        if (!left.empty()) {
+            sb.append(", ").append(left.toString().substring(1));
+        } else {
+            sb.append("]");
+        }
+        
         return sb.toString();
     }
 }

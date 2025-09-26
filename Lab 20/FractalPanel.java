@@ -22,7 +22,7 @@ public class FractalPanel extends JPanel {
         //carpet(3, 0, 0, 300, g);
         //fixedTree(6, screenWidth/2, screenHeight - 50, -90, 250, g); 
         //tree(6, screenWidth/2, screenHeight - 50, -90, 250, g); 
-        forest(20, g);    
+        forest(5, g);    
     }
 
     // The main method sets up the graphic surface for drawing.
